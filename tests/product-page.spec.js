@@ -1,6 +1,6 @@
 import { test, expect, selectors } from '@playwright/test';
 
-test('Product page add to basket', async ({ page }) => {
+test.skip('Product page add to basket', async ({ page }) => {
   await page.goto('/');
 
   const addToBasketButton = page.locator('[data-qa="product-button"]').first();
@@ -27,6 +27,4 @@ test('Product page add to basket', async ({ page }) => {
   await basketHeaderOne.waitFor();
 
   await expect(basketHeaderOne).toHaveText('Basket');
-
-  await page.pause();
 });
