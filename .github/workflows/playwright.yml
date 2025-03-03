@@ -5,7 +5,7 @@ on:
 jobs:
   playwrighttests:
     run-on: ubuntu-latest
-    stepms:
+    steps:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Say jello
