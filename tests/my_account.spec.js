@@ -1,10 +1,11 @@
 import { test } from "@playwright/test";
 import { MyAccountPage } from "../page-objects/MyAccountPage.js";
 import { getLoginToken } from "../api-calls/getLoginToken.js";
-import { userDetails } from "../data/userDetails.js";
+import { adminDetails } from "../data/adminDetails.js";
 
 test("My Account using cookie injection and mocking network request", async ({ page }) => {
-  const loginToken = await getLoginToken(userDetails.username, userDetails.password);
+
+  const loginToken = await getLoginToken(adminDetails.username, adminDetails.password);
 
   await page.route("**/api/user**", async (route, request) => {
     route.fulfill({
